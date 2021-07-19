@@ -26,5 +26,19 @@ RSpec.describe 'movies show page' do
 
       expect(page).to have_content('average age: 75.33')
     end
+
+    it 'has a form to add a new actor' do
+      visit "/movies/#{@godfather.id}"
+      expect(page).to_not have_content('Robert De Niro')
+
+      fill_in(:name, with: 'Robert De Niro')
+      fill_in(:age, with: 77)
+
+      click_button('Add Actor to Movie')
+
+      expect(current_path).to eq("/movies/#{@godfather.id}")
+
+      expect(page).to have_content('Robert De Niro')
+    end
   end
 end

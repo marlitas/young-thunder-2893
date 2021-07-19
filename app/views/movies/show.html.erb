@@ -8,3 +8,14 @@
   <p>* <%= actor.name %></p>
 <% end %>
 <p>average age: <%= @average_age %>  </p>
+
+<h2>Add an Actor</h2>
+<%= form_with url: "/movies/#{@movie.id}", method: :patch, local: true do |form|  %>
+  <%= form.label :name, 'Name' %>
+  <%= form.text_field :name%>
+
+  <%= form.label :age, 'Age' %>
+  <%= form.number_field :age%>
+
+  <%= form.submit 'Add Actor to Movie' %>
+<% end %>

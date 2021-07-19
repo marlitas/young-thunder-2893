@@ -22,7 +22,7 @@ RSpec.describe 'movies show page' do
       expect(page).to have_content(@godfather.creation_year)
       expect(page).to have_content(@godfather.genre)
 
-      expect(page).to have_content("#{@marlon.name}\n#{@diane.name}\n#{@al.name}")
+      expect(page).to have_content("* #{@marlon.name}\n* #{@diane.name}\n* #{@al.name}")
 
       expect(page).to have_content('average age: 75.33')
     end
